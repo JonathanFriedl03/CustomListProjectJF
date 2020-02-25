@@ -8,21 +8,47 @@ namespace Custom_List_Project_JF
 {
     public class CustomList<T>
     {
-       
+
         // array member variable
         //count, capcity and index propertiesgoogle this one
-       private T[] items;
-        private T count;
-        private T capacity;
+        private T[] itemsInArray;
+        CustomList<int> customList;
+        private int count;
+        private int capacity;
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
 
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+            //set
+            //{
+            //    capacity = value;
+            //}
+        }
+        //T capacity = 4;
+
+
+        //constructor  
         public CustomList()
         {
-        private T[] items = new T;
-        private T count = 0;
-    }
-
-        public void Add(T item)
+            itemsInArray = new T[4];
+            count = 0;
+        }
+        public void Add(T itemPassed)
         {
+            CustomList<int> customList = new CustomList<int>();
+            itemsInArray[0] = itemPassed;
+           // count++;
+
             //increment count
 
             //item needs to land at next available index
@@ -30,6 +56,14 @@ namespace Custom_List_Project_JF
             //check to make sure it persists
 
             //count == maxcapacity, we need to increase capacity and copy
+            
         }
+
+
+
     }
 }
+
+
+   
+
