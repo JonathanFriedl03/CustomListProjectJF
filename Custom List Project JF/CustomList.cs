@@ -10,11 +10,24 @@ namespace Custom_List_Project_JF
     {
 
         // array member variable
-        //count, capcity and index propertiesgoogle this one
-        private T[] itemsInArray;
-        CustomList<int> customList;
-        private int count;
+        //count, capcity and index properties google this one
+        private T[] eachItemInArray;
+        private T[] tempArray;
+        //CustomList<int> myList;
+        private int count;//count property
         private int capacity;
+        public T this[int index]
+        {
+            get
+            {
+                return eachItemInArray[index];
+            }
+
+            set
+            {
+                eachItemInArray[index] = value;
+            }
+        }
         public int Count
         {
             get
@@ -23,7 +36,7 @@ namespace Custom_List_Project_JF
             }
         }
 
-        public int Capacity
+        public int Capacity//capacity property
         {
             get
             {
@@ -34,29 +47,52 @@ namespace Custom_List_Project_JF
             //    capacity = value;
             //}
         }
-        //T capacity = 4;
+        //T capacity = 4;//need it to grow after 4 is hit
 
 
         //constructor  
         public CustomList()
         {
-            itemsInArray = new T[4];
+            capacity = 4;
+            eachItemInArray = new T[capacity];
             count = 0;
-        }
-        public void Add(T itemPassed)
-        {
-            CustomList<int> customList = new CustomList<int>();
-            itemsInArray[0] = itemPassed;
-           // count++;
-
-            //increment count
-
-            //item needs to land at next available index
-
-            //check to make sure it persists
-
-            //count == maxcapacity, we need to increase capacity and copy
             
+        }
+        public void Add(T itemPassedIn)
+        {
+            //CustomList<int> myList
+            //    = new CustomList<int>();
+            if (count == capacity)
+            {
+                //capacity *= 2;
+                //eachItemInArray = new T[capacity]; //make temp array is bigger
+                //count++;
+                ////move values to
+                //make original bigger 
+                //move values back
+                capacity *= 2;
+                tempArray = new T[capacity]; //make temp array is bigger          
+                
+                
+                for (int i = 0; i < count; i++)
+                {
+                     tempArray[i]= eachItemInArray[i];
+                }
+                eachItemInArray = tempArray;
+                eachItemInArray[count] = itemPassedIn;
+                count++;
+                //move values to
+                //make original bigger 
+                //move values back
+
+            }
+            else
+            {
+                eachItemInArray[count] = itemPassedIn;
+                count++;
+
+            }
+           
         }
 
 
