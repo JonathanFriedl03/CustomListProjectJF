@@ -145,15 +145,15 @@ namespace Custom_List_Project_JF
 
 
         }
-        //public string ToString()
-        //{
-        //    string convertString = "";
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        convertString += eachItemInArray[i].ToString();
-        //    }
-        //    return convertString;
-        //}
+        public override string ToString()
+        {
+            string convertString = "";
+            for (int i = 0; i < count; i++)
+            {
+                convertString += eachItemInArray[i].ToString();
+            }
+            return convertString;
+        }
 
 
     }
