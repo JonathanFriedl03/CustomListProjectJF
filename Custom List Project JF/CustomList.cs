@@ -64,14 +64,11 @@ namespace Custom_List_Project_JF
             //    = new CustomList<int>();
             if (count == capacity)
             {
-                //capacity *= 2;
-                //eachItemInArray = new T[capacity]; //make temp array is bigger
-                //count++;
-                ////move values to
+                //move values to
                 //make original bigger 
                 //move values back
                 capacity *= 2;
-                tempArray = new T[capacity]; //make temp array is bigger          
+                tempArray = new T[capacity]; //make temp array bigger          
                 
                 
                 for (int i = 0; i < count; i++)
@@ -94,7 +91,54 @@ namespace Custom_List_Project_JF
             }
            
         }
+        public void Remove(T itemPassed)
+        {
+            
+            tempArray = new T[capacity];
+            //eachItemInArray[count];
+            for (int i = 0, j = 0; i <= count; i++, j++)
+            {
+                if (eachItemInArray[i].Equals(itemPassed))
+                {
 
+                    j--;
+                    
+                    
+                }
+
+                else
+                {
+                    tempArray[j] = eachItemInArray[i];
+
+                }
+
+
+            }
+            eachItemInArray = tempArray;
+            
+
+
+            //}
+            //eachItemInArray = tempArray;
+
+            //eachItemInArray = tempArray;
+            //eachItemInArray[count] = itemPassedIn;
+            //count++;
+            //if (eachItemInArray[i].Equals(itemPassed))
+            //{
+            //    for (int j = i; j < count; j++)
+            //    {
+            //        eachItemInArray[j] = eachItemInArray[i + 1];                    
+
+            //    }
+            //}
+
+
+        }
+        //public void ToString(T valuePassedIn)
+        //{
+
+        //}
 
 
     }
