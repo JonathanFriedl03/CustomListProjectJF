@@ -154,7 +154,7 @@ namespace Custom_List_Project_JF
             }
             return convertString;
         }
-        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        public static CustomList<T> operator + (CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> newList = new CustomList<T>();
             for (int i = 0; i < listOne.Count; i++)
@@ -170,10 +170,25 @@ namespace Custom_List_Project_JF
         }
 
 
-        //public static CustomList<T> operator -(CustomList<T> listTwo)
-        //{
+        public static CustomList<T> operator - (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            
+            for (int i = 0; i < listTwo.Count; i++)
+            {
+                for (int j = 0; j < listOne.Count; j++)
+                {
+                    if (listTwo[i].Equals(listOne[j]))
+                    {
+                        listOne.Remove(listTwo[i]);
+                        break;
 
-        //}
+                    }
+                }
+                
+
+            }
+            return listOne;
+        } 
 
     }
 }
