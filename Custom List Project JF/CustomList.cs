@@ -92,30 +92,32 @@ namespace Custom_List_Project_JF
            
         }
         public void Remove(T itemPassed)
-        {
-            
+        {            
             tempArray = new T[capacity];
-            //eachItemInArray[count];
-            for (int i = 0, j = 0; i <= count; i++, j++)
+           bool itemFound = false;
+
+            for (int i = 0, j = 0; i < count; i++, j++)
             {
-                if (eachItemInArray[i].Equals(itemPassed))
+                if (eachItemInArray[i].Equals(itemPassed) && j>0)
                 {
-
                     j--;
-                    
-                    
+                   // tempArray[j] = eachItemInArray[i];
+                    itemFound = true;
+                    //itemCount -= i+1;
+                    //count --;
                 }
-
-                else
+                //else if (eachItemInArray[i].Equals(itemPassed))
+                //{
+                //    tempArray[j] = eachItemInArray[i+1];
+                //    count--;
+                //}
+                if (itemFound)
                 {
-                    tempArray[j] = eachItemInArray[i];
-
+                  tempArray[j] = eachItemInArray[i + 1];
                 }
-
-
             }
             eachItemInArray = tempArray;
-            
+
 
 
             //}
@@ -135,12 +137,16 @@ namespace Custom_List_Project_JF
 
 
         }
-        //public void ToString(T valuePassedIn)
-        //{
-
-        //}
-
-
+        public string ToString()
+        {
+            string convertString = "";
+            for (int i = 0; i < count; i++)
+            {
+                convertString += eachItemInArray[i].ToString();
+            }
+            return convertString;
+        }
+        
     }
 }
 

@@ -4,7 +4,7 @@ using Custom_List_Project_JF;
 namespace Cutom_List_Project_Test
 {
     [TestClass]
-    public class UnitTest1
+    public class AddRemoveTests
     {
        
         [TestMethod]
