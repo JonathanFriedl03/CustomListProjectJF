@@ -11,8 +11,7 @@ namespace Custom_List_Project_JF
 
         // array member variable
         //count, capcity and index properties google this one
-        private T[] eachItemInArray;
-        private T[] tempArray;
+        private T[] eachItemInArray;        
         //CustomList<int> myList;
         private int count;//count property
         private int capacity;
@@ -68,7 +67,7 @@ namespace Custom_List_Project_JF
                 //make original bigger 
                 //move values back
                 capacity *= 2;
-                tempArray = new T[capacity]; //make temp array bigger          
+                T[] tempArray = new T[capacity]; //make temp array bigger          
                 
                 
                 for (int i = 0; i < count; i++)
@@ -98,7 +97,7 @@ namespace Custom_List_Project_JF
         // CustomList<int> result = list1 + list2;
         public void Remove(T itemPassed)        
         {            
-            tempArray = new T[capacity];
+           T[] tempArray = new T[capacity];
             bool itemFound = false;
 
             for (int i = 0; i < count; i++)
