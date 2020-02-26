@@ -91,31 +91,39 @@ namespace Custom_List_Project_JF
             }
            
         }
-        public void Remove(T itemPassed)
+
+
+
+        // C# how to overload an operator
+        // CustomList<int> result = list1 + list2;
+        public void Remove(T itemPassed)        
         {            
             tempArray = new T[capacity];
-           bool itemFound = false;
+            bool itemFound = false;
 
-            for (int i = 0, j = 0; i < count; i++, j++)
+            for (int i = 0; i < count; i++)
             {
-                if (eachItemInArray[i].Equals(itemPassed) && j>0)
-                {
-                    j--;
-                   // tempArray[j] = eachItemInArray[i];
-                    itemFound = true;
-                    //itemCount -= i+1;
-                    //count --;
+                if (eachItemInArray[i].Equals(itemPassed))
+                {                 
+                   itemFound = true;                   
                 }
-                //else if (eachItemInArray[i].Equals(itemPassed))
-                //{
-                //    tempArray[j] = eachItemInArray[i+1];
-                //    count--;
-                //}
-                if (itemFound)
+               
+                if (itemFound && !(i == count -1))
                 {
-                  tempArray[j] = eachItemInArray[i + 1];
+                    tempArray[i] = eachItemInArray[i + 1];
+                    
+                }
+               else if (!eachItemInArray[i].Equals(itemPassed))
+                {                   
+                    tempArray[i] = eachItemInArray[i];              
+                
                 }
             }
+            
+            if (itemFound == true)
+            {
+                count--;
+            }            
             eachItemInArray = tempArray;
 
 
@@ -137,19 +145,67 @@ namespace Custom_List_Project_JF
 
 
         }
-        public string ToString()
-        {
-            string convertString = "";
-            for (int i = 0; i < count; i++)
-            {
-                convertString += eachItemInArray[i].ToString();
-            }
-            return convertString;
-        }
-        
+        //public string ToString()
+        //{
+        //    string convertString = "";
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        convertString += eachItemInArray[i].ToString();
+        //    }
+        //    return convertString;
+        //}
+
+
     }
 }
 
 
-   
 
+
+
+
+
+
+//public void RemoveMIKE(T itemPassed)
+//{
+//    tempArray = new T[capacity];
+//    bool itemFound = false;
+
+//    for (int i = 0; i < count - 1; i++)
+//    {
+//        if (eachItemInArray[i].Equals(itemPassed))
+//        {
+//            itemFound = true;
+//        }
+//        else if (!eachItemInArray[i].Equals(itemPassed))
+//        {
+//            if(itemFound)
+//            {
+//                tempArray[i] = eachItemInArray[i + 1];
+//            }
+//            else
+//            {
+//                tempArray[i] = eachItemInArray[i];
+//            }
+
+//            // itemFound = false;
+//        }
+
+
+//        //else if (!eachItemInArray[i].Equals(itemPassed) && itemFound)
+//        //{
+//        //    tempArray[i] = eachItemInArray[i + 1];
+//        //    // itemFound = false;
+//        //}
+//        //else if (!eachItemInArray[i].Equals(itemPassed) && !itemFound)
+//        //{
+
+//        //    tempArray[i] = eachItemInArray[i];
+
+
+//        //}
+
+//    }
+//    count--;
+//    eachItemInArray = tempArray;
+//}

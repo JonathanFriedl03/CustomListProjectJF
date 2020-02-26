@@ -188,70 +188,70 @@ namespace Cutom_List_Project_Test
             Assert.AreEqual(expected, myList[1]);
         }
 
-        //[TestMethod]
-        //public void Remove_InputNotInList_WontChangeAnything()
-        //{
-        //    //Arrange
-        //    CustomList<int> myList = new CustomList<int>();
-        //    int expected = 10;
-        //    int value1 = 5;
-        //    int value2 = 10;
-        //    int value3 = 15;
-        //    int value4 = 20;
-        //    //Act
-        //    myList.Add(value1);
-        //    myList.Add(value2);
-        //    myList.Add(value3);
-        //    myList.Add(value4);
-        //    myList.Remove(100);
-
-        //    //Assert
-        //    Assert.AreEqual(expected, myList[1]);
-        //}
-        //[TestMethod]
-        //public void Remove_InputNotInList_WontChangeCount()
-        //{
-        //    //Arrange
-        //    CustomList<int> myList = new CustomList<int>();
-        //    int expected = 10;
-        //    int value1 = 5;
-        //    int value2 = 10;
-        //    int value3 = 15;
-        //    int value4 = 20;
-        //    //Act
-        //    myList.Add(value1);
-        //    myList.Add(value2);
-        //    myList.Add(value3);
-        //    myList.Add(value4);
-        //    myList.Remove(100);
-
-        //    //Assert
-        //    Assert.AreEqual(expected, myList.Count);
-        //}
         [TestMethod]
-        public void ToString_Convert_IntToString()
+        public void Remove_InputNotInList_WontChangeAnything()
         {
             //Arrange
-
+            CustomList<int> myList = new CustomList<int>();
+            int expected = 10;
+            int value1 = 5;
+            int value2 = 10;
+            int value3 = 15;
+            int value4 = 20;
             //Act
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Add(value4);
+            myList.Remove(100);
+
             //Assert
+            Assert.AreEqual(expected, myList[1]);
         }
         [TestMethod]
-        public void ToString_ConvertStringList_ToString()
+        public void Remove_InputNotInList_WontChangeCount()
         {
             //Arrange
-
+            CustomList<int> myList = new CustomList<int>();
+            int expected = 4;
+            int value1 = 5;
+            int value2 = 10;
+            int value3 = 15;
+            int value4 = 20;
             //Act
-            //Assert
-        }
-        [TestMethod]
-        public void ToString_ConvertEmptyString_ToString()
-        {
-            //Arrange
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Add(value4);
+            myList.Remove(100);
 
-            //Act
             //Assert
+            Assert.AreEqual(expected, myList.Count);
         }
-    }
+            //[TestMethod]
+            //public void ToString_Convert_IntToString()
+            //{
+            //    //Arrange
+
+            //    //Act
+            //    //Assert
+            //}
+            //[TestMethod]
+            //public void ToString_ConvertStringList_ToString()
+            //{
+            //    //Arrange
+
+            //    //Act
+            //    //Assert
+            //}
+            //[TestMethod]
+            //public void ToString_ConvertEmptyString_ToString()
+            //{
+            //    //Arrange
+
+            //    //Act
+            //    //Assert
+            //}
+        }
     
 }
