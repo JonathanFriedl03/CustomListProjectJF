@@ -10,11 +10,8 @@ namespace Custom_List_Project_JF
 {
     public class CustomList<T> : IEnumerable
     {
-
-        // array member variable
-        //count, capcity and index properties google this one
-        private T[] eachItemInArray;        
-        //CustomList<int> myList;
+        //The zipper contains Easter Egg solid principle
+        private T[] eachItemInArray;  
         private int count;//count property
         private int capacity;
         public T this[int index]
@@ -36,7 +33,6 @@ namespace Custom_List_Project_JF
                 return count;
             }
         }
-
         public int Capacity//capacity property
         {
             get
@@ -47,9 +43,7 @@ namespace Custom_List_Project_JF
             //{
             //    capacity = value;
             //}
-        }
-        //T capacity = 4;//need it to grow after 4 is hit
-
+        }        
         IEnumerator IEnumerable.GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
@@ -81,27 +75,19 @@ namespace Custom_List_Project_JF
                 
                 for (int i = 0; i < count; i++)
                 {
-                     tempArray[i]= eachItemInArray[i];
+                   tempArray[i]= eachItemInArray[i];
                 }
                 eachItemInArray = tempArray;
                 eachItemInArray[count] = itemPassedIn;
-                count++;
-                //move values to
-                //make original bigger 
-                //move values back
-
+                count++;               
             }
             else
             {
                 eachItemInArray[count] = itemPassedIn;
                 count++;
 
-            }
-           
+            }           
         }
-
-
-
         // C# how to overload an operator
         // CustomList<int> result = list1 + list2;
         public void Remove(T itemPassed)        
@@ -123,8 +109,7 @@ namespace Custom_List_Project_JF
                 }
                else if (!eachItemInArray[i].Equals(itemPassed))
                 {                   
-                    tempArray[i] = eachItemInArray[i];              
-                
+                    tempArray[i] = eachItemInArray[i];           
                 }
             }
             
@@ -133,25 +118,7 @@ namespace Custom_List_Project_JF
                 count--;
             }            
             eachItemInArray = tempArray;
-
-
-
-            //}
-            //eachItemInArray = tempArray;
-
-            //eachItemInArray = tempArray;
-            //eachItemInArray[count] = itemPassedIn;
-            //count++;
-            //if (eachItemInArray[i].Equals(itemPassed))
-            //{
-            //    for (int j = i; j < count; j++)
-            //    {
-            //        eachItemInArray[j] = eachItemInArray[i + 1];                    
-
-            //    }
-            //}
-
-
+            
         }
         public override string ToString()
         {
@@ -196,12 +163,9 @@ namespace Custom_List_Project_JF
             }
             return listOne;
         }
-
-
-
         public CustomList<T> Zipper(CustomList<T> listA, CustomList<T> listB)
         {
-           int listCounter = GetLongerListCount(listA, listB);
+           int listCounter = GetLongerListCount(listA, listB);//This is a single responsibility principle so this method could be in here but since it does something other than Zip I created a new method
             CustomList<T> listC = new CustomList<T>();
             for (int i = 0; i < listCounter; i++)
 
@@ -233,56 +197,8 @@ namespace Custom_List_Project_JF
             return listCounter;
         }
 
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    throw new NotImplementedException();
-        //}
-        //static void alternateMerge(int[] arr1, int[] arr2,
-        ////                    int n1, int n2, int[] arr3)
-        //{
-        //    int i = 0, j = 0, k = 0;
-
-        //    // Traverse both array 
-        //    while (i < n1 && j < n2)
-        //    {
-        //        arr3[k++] = arr1[i++];
-        //        arr3[k++] = arr2[j++];
-        //    }
-
-        //    // Store remaining elements of first array 
-        //    while (i < n1)
-        //        arr3[k++] = arr1[i++];
-
-        //    // Store remaining elements of second array 
-        //    while (j < n2)
-        //        arr3[k++] = arr2[j++];
-        //}
-        //public static void Main()
-        //{
-        //    int[] arr1 = new int[] { 1, 3, 5, 7, 9, 11 };
-        //    int n1 = arr1.Length;
-
-        //    int[] arr2 = new int[] { 2, 4, 6, 8 };
-        //    int n2 = arr2.Length;
-
-        //    int[] arr3 = new int[n1 + n2];
-        //    alternateMerge(arr1, arr2, n1, n2, arr3);
-
-        //    Console.WriteLine("Array after merging");
-        //    for (int i = 0; i < n1 + n2; i++)
-        //        Console.Write(arr3[i] + " ");
-        //}
-
-
     }
 }
-
-
-
-
-
-
-
 
 //public void RemoveMIKE(T itemPassed)
 //{
