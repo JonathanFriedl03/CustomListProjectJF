@@ -189,12 +189,28 @@ namespace Custom_List_Project_JF
         }
         public CustomList<T> Zipper(CustomList<T> listA, CustomList<T> listB)
         {
-            int listCounter = listA.count + listB.count;
+            int listCounter;
+            if (listA.Count > listB.Count)
+            {
+                listCounter = listA.Count;
+            }
+            else
+            {
+                listCounter = listB.Count;
+            }
+            
             CustomList<T> listC = new CustomList<T>();
             for (int i = 0; i < listCounter; i++)
             {
-                listC.Add(listA[i]) ;
-                listC.Add(listB[i]);
+                if (i < listA.Count) 
+                {
+                    listC.Add(listA[i]);
+                }
+                if(i < listB.Count)
+                {
+                    listC.Add(listB[i]);
+                }
+                
             }
             return listC;
         }

@@ -228,30 +228,6 @@ namespace Cutom_List_Project_Test
             //Assert
             Assert.AreEqual(expected, myList.Count);
         }
-            //[TestMethod]
-            //public void ToString_Convert_IntToString()
-            //{
-            //    //Arrange
-
-            //    //Act
-            //    //Assert
-            //}
-            //[TestMethod]
-            //public void ToString_ConvertStringList_ToString()
-            //{
-            //    //Arrange
-
-            //    //Act
-            //    //Assert
-            //}
-            //[TestMethod]
-            //public void ToString_ConvertEmptyString_ToString()
-            //{
-            //    //Arrange
-
-            //    //Act
-            //    //Assert
-            //}
     }
     
 }

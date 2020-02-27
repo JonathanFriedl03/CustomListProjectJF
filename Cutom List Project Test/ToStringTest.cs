@@ -208,5 +208,68 @@ namespace Cutom_List_Project_Test
             //Assert
             Assert.AreEqual(expected.ToString(), resultList.ToString());
         }
+
+        [TestMethod]
+        public void Zipper_Combine_Together()
+        {
+            //Arrange
+            CustomList<int> numbersListOne = new CustomList<int>();
+            CustomList<int> numbersListTwo = new CustomList<int>();
+            CustomList<int> resultList = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>();
+            expected.Add(1);
+            expected.Add(2);
+            expected.Add(3);
+            expected.Add(4);
+            expected.Add(5);
+            expected.Add(6);
+            //Act
+            numbersListOne.Add(1);
+            numbersListOne.Add(3);
+            numbersListOne.Add(5);
+            numbersListTwo.Add(2);
+            numbersListTwo.Add(4);
+            numbersListTwo.Add(6);
+            resultList = resultList.Zipper(numbersListOne, numbersListTwo);
+            //Assert
+            Assert.AreEqual(expected.ToString(),resultList.ToString());
+        }
+        [TestMethod]
+        public void Zipper_CombineLongerListWithShorterList_Together()
+        {
+            //Arrange
+            CustomList<int> numbersListOne = new CustomList<int>();
+            CustomList<int> numbersListTwo = new CustomList<int>();
+            CustomList<int> resultList = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>();
+            expected.Add(1);
+            expected.Add(2);
+            expected.Add(3);
+            expected.Add(4);
+            expected.Add(5);
+            expected.Add(6);
+            expected.Add(7);
+            expected.Add(9);
+            //Act
+            numbersListOne.Add(1);
+            numbersListOne.Add(3);
+            numbersListOne.Add(5);
+            numbersListOne.Add(7);
+            numbersListOne.Add(9);
+            numbersListTwo.Add(2);
+            numbersListTwo.Add(4);
+            numbersListTwo.Add(6);
+            resultList = resultList.Zipper(numbersListOne, numbersListTwo);
+            //Assert
+            Assert.AreEqual(expected.ToString(), resultList.ToString());
+        }
+        [TestMethod]
+        public void ToString_ConvertEmptyString_ToString()
+        {
+            //Arrange
+
+            //Act
+            //Assert
+        }
     }
 }
