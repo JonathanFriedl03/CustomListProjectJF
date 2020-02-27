@@ -204,6 +204,8 @@ namespace Custom_List_Project_JF
            int listCounter = GetLongerListCount(listA, listB);
             CustomList<T> listC = new CustomList<T>();
             for (int i = 0; i < listCounter; i++)
+
+
             {
                 if (i < listA.Count) 
                 {

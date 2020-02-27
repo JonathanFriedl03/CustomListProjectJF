@@ -1,6 +1,3 @@
-As a developer, I want to write documentation in a .txt file that describes the details and 
-functionality of my – operator overload. I want to include details such as “syntax”, “parameters”, 
-“return type”, and an example of it being used, with the output. 
 "-" OPERATOR METHOD
 
 Syntax:

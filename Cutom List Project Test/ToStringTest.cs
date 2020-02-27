@@ -194,6 +194,19 @@ namespace Cutom_List_Project_Test
             Assert.AreEqual(expected.ToString(), resultList.ToString());
         }
         [TestMethod]
+        public void SameTestAsAbove_ExceptUsing_Iterator()
+        {
+            //Arrange
+            CustomList<string> stringListOne = new CustomList<string>() { "J", "O", "N", "A", "T", "H", "A", "N" };
+            CustomList<string> stringListTwo = new CustomList<string>() { "T", "H", "A", "N" };
+            CustomList<string> resultList = new CustomList<string>();
+            CustomList<string> expected = new CustomList<string>() { "J", "O", "A", "N" };
+            //Act
+            resultList = stringListOne - stringListTwo;
+            //Assert
+            Assert.AreEqual(expected.ToString(), resultList.ToString());
+        }
+        [TestMethod]
         public void Remove_EmptyLists_CaptureResult()
         {
             //Arrange
@@ -311,7 +324,43 @@ namespace Cutom_List_Project_Test
             numbersList.Add(10);
             foreach(int number in numbersList)
             {
-                actual = actual + number;
+                actual += number;
+            }
+            //Arrange
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Numerator_AddsItemIn_ForEachLoop()
+        {
+            //Arrange
+            CustomList<int> numbersList = new CustomList<int>() {1,2,3};
+            //CustomList<int> expected = new CustomList<int>();
+            int expected = 6;
+            int actual = 0;
+            //Act
+          
+            foreach (int number in numbersList)
+            {
+                actual += number;
+            }
+            //Arrange
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Numerator_MultipliesItemIn_ForEachLoop()
+        {
+            //Arrange
+            CustomList<int> numbersList = new CustomList<int>() { 1, 2, 3, 4 };
+            //CustomList<int> expected = new CustomList<int>();
+            int expected = 24;
+            int actual = 1;
+            //Act
+
+            foreach (int number in numbersList)
+            {
+                actual *= number;
             }
             //Arrange
             Assert.AreEqual(expected, actual);
