@@ -1,0 +1,24 @@
+As a developer, I want to write documentation in a .txt file that describes the details and 
+functionality of my – operator overload. I want to include details such as “syntax”, “parameters”, 
+“return type”, and an example of it being used, with the output. 
+
+ EXample of "-"Operator:
+
+public static CustomList<T> operator - (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            
+            for (int i = 0; i < listTwo.Count; i++)
+            {
+                for (int j = 0; j < listOne.Count; j++)
+                {
+                    if (listTwo[i].Equals(listOne[j]))
+                    {
+                        listOne.Remove(listTwo[i]);
+                        break;
+
+                    }
+                }               
+
+            }
+            return listOne;
+        }

@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Custom_List_Project_JF
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
 
         // array member variable
@@ -48,7 +50,14 @@ namespace Custom_List_Project_JF
         }
         //T capacity = 4;//need it to grow after 4 is hit
 
-
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return eachItemInArray[i];
+            }
+            
+        }
         //constructor  
         public CustomList()
         {
@@ -187,18 +196,12 @@ namespace Custom_List_Project_JF
             }
             return listOne;
         }
+
+
+
         public CustomList<T> Zipper(CustomList<T> listA, CustomList<T> listB)
         {
-            int listCounter;
-            if (listA.Count > listB.Count)
-            {
-                listCounter = listA.Count;
-            }
-            else
-            {
-                listCounter = listB.Count;
-            }
-            
+           int listCounter = GetLongerListCount(listA, listB);
             CustomList<T> listC = new CustomList<T>();
             for (int i = 0; i < listCounter; i++)
             {
@@ -214,8 +217,26 @@ namespace Custom_List_Project_JF
             }
             return listC;
         }
+        public int GetLongerListCount(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            int listCounter;
+            if (listOne.Count > listTwo.Count)
+            {
+                listCounter = listOne.Count;
+            }
+            else
+            {
+                listCounter = listTwo.Count;
+            }
+            return listCounter;
+        }
+
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
         //static void alternateMerge(int[] arr1, int[] arr2,
-        //                    int n1, int n2, int[] arr3)
+        ////                    int n1, int n2, int[] arr3)
         //{
         //    int i = 0, j = 0, k = 0;
 

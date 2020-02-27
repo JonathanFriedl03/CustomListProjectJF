@@ -264,12 +264,59 @@ namespace Cutom_List_Project_Test
             Assert.AreEqual(expected.ToString(), resultList.ToString());
         }
         [TestMethod]
-        public void ToString_ConvertEmptyString_ToString()
+        public void Zipper_CombineShorterListWithLongerList_Together()
         {
             //Arrange
-
+            CustomList<int> numbersListOne = new CustomList<int>();
+            CustomList<int> numbersListTwo = new CustomList<int>();
+            CustomList<int> resultList = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>();
+            expected.Add(1);
+            expected.Add(2);
+            expected.Add(3);
+            expected.Add(4);
+            expected.Add(5);
+            expected.Add(6);
+            expected.Add(8);
+            expected.Add(10);
             //Act
+            numbersListOne.Add(1);
+            numbersListOne.Add(3);
+            numbersListOne.Add(5);
+            numbersListTwo.Add(2);
+            numbersListTwo.Add(4);
+            numbersListTwo.Add(6);
+            numbersListTwo.Add(8);
+            numbersListTwo.Add(10);
+            resultList = resultList.Zipper(numbersListOne, numbersListTwo);
             //Assert
+            Assert.AreEqual(expected.ToString(), resultList.ToString());
+        }
+        [TestMethod]
+        public void Numerator_BuildsContentsOfItemsIn_ForEachLoop()
+        {
+            //Arrange
+            CustomList<int> numbersList = new CustomList<int>();
+            //CustomList<int> expected = new CustomList<int>();
+            string expected = "123456810";
+            string actual = "";
+            //Act
+            numbersList.Add(1);
+            numbersList.Add(2);
+            numbersList.Add(3);
+            numbersList.Add(4);
+            numbersList.Add(5);
+            numbersList.Add(6);
+            numbersList.Add(8);
+            numbersList.Add(10);
+            foreach(int number in numbersList)
+            {
+                actual = actual + number;
+            }
+            //Arrange
+            Assert.AreEqual(expected, actual);
+
         }
     }
+    
 }
